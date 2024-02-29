@@ -17,14 +17,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os-version: ["stretch", "bionic"]
+        os-version: ["bionic"]
     steps:
       - uses: actions/checkout@v2
       - uses: jtdor/build-deb-action@v1
         env:
           DEB_BUILD_OPTIONS: noautodbgsym
         with:
-          docker-image: "debian:${{ matrix.os-version }}-slim"
+          docker-image: "ubuntu:${{ matrix.os-version }}"
           buildpackage-opts: --build=binary --no-sign
       - name: Upload deb files
         uses: actions/upload-artifact@v3

@@ -17,7 +17,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os-version: ["stretch", "buster", "bullseye"]
+        os-version: ["stretch", "bionic"]
     steps:
       - uses: actions/checkout@v2
       - uses: jtdor/build-deb-action@v1
